@@ -102,7 +102,6 @@ module.exports = taskSchema;
 
 You can now use the Task model to perform CRUD (create, read, update, and delete) operations on your MongoDB Atlas database. Here are some examples:
 
-const mongoose = require('mongoose');
 const taskSchema = require('./taskSchema');
 
 const Task = mongoose.model('Task', taskSchema);
