@@ -33,4 +33,5 @@ Throughout the class, you will have the opportunity to work on a real-world proj
 
 # Server setup
 - npm init
+- npm intall express
 
