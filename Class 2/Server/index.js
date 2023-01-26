@@ -1,21 +1,44 @@
-const express = require("express");
-const app = express();
-const mongoose = require("mongoose");
+// packages
+const express = require('express')
+const app = express()
 
-mongoose.connect(
-    "mongodb+srv://<username>:<password>@cluster.mongodb.net/<dbname>",
-    { useNewUrlParser: true })
-    .then(() => {
-        console.log("Connected to MongoDB");
-    })
-    .catch(() => {
-        console.log("Couldn't connect to MongoDB");
-    })
+const mongoose = require('mongoose')
 
 
-app.use(express.json())
+// file import
+const taskSchema = require('./model/Task')
+
+const Task = mongoose.model("Tasks", taskSchema)
+
+const mongoDBAccess = 'mongodb+srv://adminuser:adminuser123@mernstackclass2.mxfdkkk.mongodb.net/?retryWrites=true&w=majority'
 
 
-app.listen(8800, () => {
-    console.log("Backend server is running!")
+mongoose.connect(mongoDBAccess, { useNewUrlParser: true }).then(()=>{
+    console.log('you app has been connected to mongoDB')
+}).catch((err)=>{
+    console.log(err)
 })
+
+// creating new task to the DB
+
+const newTask = new Task({
+    name:'have dinner',
+    date: '26/01/2023',
+    isCompleted: false
+})
+
+
+newTask.save()
+
+const port = 8000
+
+app.listen(port,()=>{
+    console.log(` we are in port ${port}`)
+})
+
+
+
+
+
+
+
