@@ -10,6 +10,7 @@
 
 - Click on "Create Project" to create your project.
 
+
 # Create a Cluster
 
 - Once your project is created, you will be taken to the Clusters page. Click on "Build a New Cluster" to create a new cluster.
@@ -32,6 +33,7 @@
 
 - Click on "Confirm" to whitelist your IP address.
 
+
 # Mongoose 
 
 Mongoose is an Object Document Mapper (ODM) for MongoDB and Node.js. It provides a straightforward, schema-based solution to model your application data. Mongoose allows you to define a schema for your documents, and then interact with MongoDB using that schema, rather than interacting with the raw JSON data directly.
@@ -51,18 +53,35 @@ In your Node.js app, install the Mongoose package using npm by running the follo
 
 - npm install mongoose
 
+
 # Connect to MongoDB Atlas
 
-In your Node.js app, import the Mongoose module and connect to your MongoDB Atlas cluster using the following code:
+- In your Node.js app, import the Mongoose module and connect to your MongoDB Atlas cluster using the following code:
 
-const mongoose = require('mongoose');
+const express = require("express");
+const app = express();
+const mongoose = require("mongoose");
 
-mongoose.connect('mongodb+srv://<username>:<password>@cluster.mongodb.net/<dbname>', {
-  useNewUrlParser: true,
-  useUnifiedTopology: true
-});
+mongoose.connect(
+    "mongodb+srv://<username>:<password>@cluster.mongodb.net/<dbname>",
+    { useNewUrlParser: true })
+    .then(() => {
+        console.log("Connected to MongoDB");
+    })
+    .catch(() => {
+        console.log("Couldn't connect to MongoDB");
+    })
+
+
+app.use(express.json())
+
+
+app.listen(8800, () => {
+    console.log("Backend server is running!")
+})
 
 - Make sure to replace <username> and <password> with your MongoDB Atlas username and password, and <dbname> with the name of your desired database.
+
 
 # Define a Mongoose Schema
 
