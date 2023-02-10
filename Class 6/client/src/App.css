@@ -1,0 +1,42 @@
+.header_text{
+width: 223px;
+height: 116px;
+
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 700;
+font-size: 56px;
+line-height: 116px;
+
+color: #007FDB;
+}
+
+#task_div{
+  margin: 2%;
+  background: gainsboro;
+  padding: 1%;
+  text-align: right;
+}
+
+
+form{
+  display: flex;
+  justify-content: center;
+  margin-top: 3%;
+}
+
+input {
+  width: 50%;
+    padding: 2%;
+}
+
+#task_list_div{
+  display: flex;
+  justify-content: space-between;
+  margin: 5%;
+}
+
+#btn_div{
+  margin-top: 3%;
+}
